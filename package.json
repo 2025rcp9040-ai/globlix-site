@@ -1,0 +1,14 @@
+{
+  "name": "globlix-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "globlix.in: static site, Decap CMS editor and Cloudflare Pages lead function to Google Sheets and HubSpot",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

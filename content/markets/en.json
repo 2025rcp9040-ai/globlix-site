@@ -1,0 +1,111 @@
+{
+  "board_title": "Market access for Indian goods",
+  "board_intro": "Duty status for Indian goods, checked October 2026. Rules change often: we confirm the rate for your HSN code before you quote a buyer.",
+  "timeline_title": "Trade deals that changed the map",
+  "markets": [
+    {
+      "name": "United Kingdom",
+      "group": "established",
+      "status": "zero",
+      "note": "0% on qualifying goods under CETA since 15 Jul 2026"
+    },
+    {
+      "name": "UAE",
+      "group": "established",
+      "status": "zero",
+      "note": "Duty-free on most goods under CEPA since May 2022"
+    },
+    {
+      "name": "European Union",
+      "group": "established",
+      "status": "soon",
+      "note": "FTA concluded 27 Jan 2026; duties fall after ratification"
+    },
+    {
+      "name": "USA",
+      "group": "established",
+      "status": "extra",
+      "note": "Normal duty plus 10% since 24 Jul 2026"
+    },
+    {
+      "name": "Saudi Arabia",
+      "group": "established",
+      "status": "normal",
+      "note": "Normal duty; a large market where India's share is still small"
+    },
+    {
+      "name": "Australia",
+      "group": "new",
+      "status": "zero",
+      "note": "0% on all tariff lines under ECTA since 1 Jan 2026"
+    },
+    {
+      "name": "New Zealand",
+      "group": "new",
+      "status": "soon",
+      "note": "0% on all Indian exports from 20 Oct 2026"
+    },
+    {
+      "name": "EFTA",
+      "group": "new",
+      "status": "partial",
+      "note": "TEPA since 1 Oct 2025; concessions cover 99.6% of India's exports"
+    },
+    {
+      "name": "Japan",
+      "group": "new",
+      "status": "partial",
+      "note": "CEPA since 2011; garments enter duty-free"
+    },
+    {
+      "name": "Canada",
+      "group": "new",
+      "status": "normal",
+      "note": "CEPA talks launched 2 Mar 2026; normal duty for now"
+    },
+    {
+      "name": "Latin America",
+      "group": "new",
+      "status": "partial",
+      "note": "PTAs with Chile and Mercosur; more deals in talks"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "May 2022",
+      "text": "India–UAE CEPA in force"
+    },
+    {
+      "date": "Dec 2022",
+      "text": "India–Australia ECTA in force"
+    },
+    {
+      "date": "1 Oct 2025",
+      "text": "India–EFTA TEPA in force"
+    },
+    {
+      "date": "1 Jan 2026",
+      "text": "Australia: 0% on all Indian goods"
+    },
+    {
+      "date": "27 Jan 2026",
+      "text": "India–EU FTA concluded"
+    },
+    {
+      "date": "2 Mar 2026",
+      "text": "India–Canada CEPA talks launched"
+    },
+    {
+      "date": "15 Jul 2026",
+      "text": "India–UK CETA in force"
+    },
+    {
+      "date": "24 Jul 2026",
+      "text": "USA: extra 10% duty on Indian goods"
+    },
+    {
+      "date": "20 Oct 2026",
+      "text": "India–New Zealand FTA due in force"
+    }
+  ]
+}

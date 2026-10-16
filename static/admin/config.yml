@@ -1,0 +1,284 @@
+# Decap CMS configuration for globlix.in
+# Editors sign in with their GitHub account (it needs write access to the
+# repository). Changes are saved as drafts (pull requests, each with a free
+# Cloudflare preview link) and only go live when you click "Publish".
+# Replace the two values marked CHANGE ME during setup (see README step 5).
+backend:
+  name: github
+  repo: CHANGE-ME-github-username/globlix-site
+  branch: main
+  base_url: https://CHANGE-ME.workers.dev
+
+publish_mode: editorial_workflow
+site_url: https://globlix.in
+logo_url: /images/globlix-logo.png
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+i18n:
+  structure: multiple_folders
+  locales: [en, hi]
+  default_locale: en
+
+collections:
+  - name: blog
+    label: Insights (blog)
+    label_singular: Article
+    folder: content/blog
+    create: true
+    i18n: true
+    slug: "{{slug}}"
+    summary: "{{title}} ({{date}})"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Publish date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false, i18n: duplicate }
+      - { label: Last updated, name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false, required: false, i18n: duplicate }
+      - { label: Short description (for Google and cards), name: description, widget: text, i18n: true }
+      - { label: Tags, name: tags, widget: list, required: false, i18n: true }
+      - { label: Cover image, name: image, widget: image, required: false, i18n: duplicate }
+      - { label: Hide (draft), name: draft, widget: boolean, default: false, i18n: duplicate }
+      - { label: Article, name: body, widget: markdown, i18n: true }
+
+  - name: services
+    label: Services (5 pillars)
+    folder: content/services
+    create: false
+    delete: false
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: One-line summary, name: summary, widget: text, i18n: true }
+      - { label: Order, name: order, widget: number, value_type: int, i18n: duplicate }
+      - { label: Icon, name: icon, widget: select, options: [shield, chart, ship, rupee, rocket, globe], i18n: duplicate }
+      - { label: Page text, name: body, widget: markdown, i18n: true }
+
+  - name: pages
+    label: Pages
+    folder: content/pages
+    create: false
+    delete: false
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Description (for Google), name: description, widget: text, i18n: true }
+      - { label: Page text, name: body, widget: markdown, i18n: true }
+
+  - name: home
+    label: Home page
+    files:
+      - name: home_en
+        label: Home page (English)
+        file: content/home/en.json
+        fields:
+          - { label: Google title, name: seo_title, widget: string }
+          - { label: Google description, name: seo_description, widget: text }
+          - { label: Eyebrow, name: hero_eyebrow, widget: string }
+          - { label: Headline, name: hero_title, widget: string }
+          - { label: Intro text, name: hero_text, widget: text }
+          - { label: Hero tick points, name: hero_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: Main button, name: cta_primary, widget: string }
+          - { label: Second button, name: cta_secondary, widget: string }
+          - { label: Quick form heading, name: quick_title, widget: string }
+          - { label: Quick form text, name: quick_text, widget: string }
+          - label: Trust bar
+            name: trust
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+              - { label: Icon, name: icon, widget: select, options: [shield, globe, rupee, chat, check, star] }
+          - { label: Problems heading, name: problems_title, widget: string }
+          - { label: Problems intro, name: problems_text, widget: text }
+          - label: Problems and the service that solves each
+            name: problems
+            widget: list
+            fields:
+              - { label: Problem, name: problem, widget: string }
+              - { label: Service, name: service, widget: select, options: [setup-compliance, strategic-intelligence, aggregator-engine, financial-growth, digital-launchpad] }
+              - { label: Outcome, name: outcome, widget: text }
+          - { label: "'Not sure where to start' heading", name: start_title, widget: string }
+          - { label: "'Not sure where to start' text", name: start_text, widget: text }
+          - { label: Proof heading, name: facts_title, widget: string }
+          - label: Proof numbers
+            name: facts
+            widget: list
+            fields:
+              - { label: Big number, name: value, widget: string }
+              - { label: What it means, name: label, widget: string }
+              - { label: Source, name: source, widget: string }
+          - { label: Process heading, name: steps_title, widget: string }
+          - label: Process steps
+            name: steps
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Audience heading, name: audience_title, widget: string }
+          - label: Audiences
+            name: audiences
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+              - { label: Icon, name: icon, widget: select, options: [rocket, star, chart, globe, check] }
+          - { label: Markets heading, name: markets_title, widget: string }
+          - { label: Markets intro, name: markets_text, widget: text }
+          - { label: FAQ heading, name: faq_title, widget: string }
+          - label: FAQ
+            name: faq
+            widget: list
+            fields:
+              - { label: Question, name: q, widget: string }
+              - { label: Answer, name: a, widget: text }
+          - { label: Final call-to-action heading, name: cta_title, widget: string }
+          - { label: Final call-to-action text, name: cta_text, widget: text }
+      - name: home_hi
+        label: Home page (Hindi)
+        file: content/home/hi.json
+        fields:
+          - { label: Google title, name: seo_title, widget: string }
+          - { label: Google description, name: seo_description, widget: text }
+          - { label: Eyebrow, name: hero_eyebrow, widget: string }
+          - { label: Headline, name: hero_title, widget: string }
+          - { label: Intro text, name: hero_text, widget: text }
+          - { label: Hero tick points, name: hero_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: Main button, name: cta_primary, widget: string }
+          - { label: Second button, name: cta_secondary, widget: string }
+          - { label: Quick form heading, name: quick_title, widget: string }
+          - { label: Quick form text, name: quick_text, widget: string }
+          - label: Trust bar
+            name: trust
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+              - { label: Icon, name: icon, widget: select, options: [shield, globe, rupee, chat, check, star] }
+          - { label: Problems heading, name: problems_title, widget: string }
+          - { label: Problems intro, name: problems_text, widget: text }
+          - label: Problems and the service that solves each
+            name: problems
+            widget: list
+            fields:
+              - { label: Problem, name: problem, widget: string }
+              - { label: Service, name: service, widget: select, options: [setup-compliance, strategic-intelligence, aggregator-engine, financial-growth, digital-launchpad] }
+              - { label: Outcome, name: outcome, widget: text }
+          - { label: "'Not sure where to start' heading", name: start_title, widget: string }
+          - { label: "'Not sure where to start' text", name: start_text, widget: text }
+          - { label: Proof heading, name: facts_title, widget: string }
+          - label: Proof numbers
+            name: facts
+            widget: list
+            fields:
+              - { label: Big number, name: value, widget: string }
+              - { label: What it means, name: label, widget: string }
+              - { label: Source, name: source, widget: string }
+          - { label: Process heading, name: steps_title, widget: string }
+          - label: Process steps
+            name: steps
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Audience heading, name: audience_title, widget: string }
+          - label: Audiences
+            name: audiences
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+              - { label: Icon, name: icon, widget: select, options: [rocket, star, chart, globe, check] }
+          - { label: Markets heading, name: markets_title, widget: string }
+          - { label: Markets intro, name: markets_text, widget: text }
+          - { label: FAQ heading, name: faq_title, widget: string }
+          - label: FAQ
+            name: faq
+            widget: list
+            fields:
+              - { label: Question, name: q, widget: string }
+              - { label: Answer, name: a, widget: text }
+          - { label: Final call-to-action heading, name: cta_title, widget: string }
+          - { label: Final call-to-action text, name: cta_text, widget: text }
+  - name: markets
+    label: Market access board
+    files:
+      - name: markets_en
+        label: Market access (English)
+        file: content/markets/en.json
+        fields:
+          - { label: Board heading, name: board_title, widget: string }
+          - { label: Board intro, name: board_intro, widget: text }
+          - { label: Timeline heading, name: timeline_title, widget: string }
+          - label: Markets
+            name: markets
+            widget: list
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - { label: Market, name: name, widget: string }
+              - { label: Group, name: group, widget: select, options: [{ label: Established, value: established }, { label: New deal, value: new }] }
+              - { label: Duty status, name: status, widget: select, options: [{ label: "0% now", value: zero }, { label: "0% coming", value: soon }, { label: Duty cuts, value: partial }, { label: Normal duty, value: normal }, { label: Extra duty, value: extra }] }
+              - { label: Short note, name: note, widget: string }
+          - label: Timeline
+            name: timeline
+            widget: list
+            fields:
+              - { label: Date, name: date, widget: string }
+              - { label: Event, name: text, widget: string }
+      - name: markets_hi
+        label: Market access (Hindi)
+        file: content/markets/hi.json
+        fields:
+          - { label: Board heading, name: board_title, widget: string }
+          - { label: Board intro, name: board_intro, widget: text }
+          - { label: Timeline heading, name: timeline_title, widget: string }
+          - label: Markets
+            name: markets
+            widget: list
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - { label: Market, name: name, widget: string }
+              - { label: Group, name: group, widget: select, options: [{ label: Established, value: established }, { label: New deal, value: new }] }
+              - { label: Duty status, name: status, widget: select, options: [{ label: "0% now", value: zero }, { label: "0% coming", value: soon }, { label: Duty cuts, value: partial }, { label: Normal duty, value: normal }, { label: Extra duty, value: extra }] }
+              - { label: Short note, name: note, widget: string }
+          - label: Timeline
+            name: timeline
+            widget: list
+            fields:
+              - { label: Date, name: date, widget: string }
+              - { label: Event, name: text, widget: string }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: settings
+        label: Contact details and links
+        file: content/settings.json
+        fields:
+          - { label: Site name, name: site_name, widget: string }
+          - { label: Registered business name, name: business_name, widget: string, required: false }
+          - { label: Google Business Profile link, name: google_business_url, widget: string, required: false }
+          - { label: "Turnstile site key (optional spam check)", name: turnstile_site_key, widget: string, required: false, hint: "From Cloudflare > Turnstile. Leave empty to turn the check off. Also set TURNSTILE_SECRET in Cloudflare." }
+          - { label: Site address, name: site_url, widget: string }
+          - { label: Tagline (English), name: tagline_en, widget: string }
+          - { label: Tagline (Hindi), name: tagline_hi, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Phone (as shown), name: phone, widget: string }
+          - { label: "WhatsApp number (digits with country code, e.g. 919876543210)", name: whatsapp, widget: string, pattern: ["^[0-9]{10,15}$", "Digits only, with country code"] }
+          - { label: WhatsApp greeting (English), name: whatsapp_message_en, widget: string }
+          - { label: WhatsApp greeting (Hindi), name: whatsapp_message_hi, widget: string }
+          - { label: Address, name: address, widget: text, required: false }
+          - { label: Backed by, name: backed_by, widget: string }
+          - { label: Exporting since, name: since, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+          - { label: Instagram URL, name: instagram, widget: string, required: false }
+          - { label: YouTube URL, name: youtube, widget: string, required: false }
+          - { label: Founder name (shown on About page when filled), name: founder_name, widget: string, required: false }
+          - { label: Founder role, name: founder_role, widget: string, required: false }
+          - { label: Founder bio (English), name: founder_bio_en, widget: text, required: false }
+          - { label: Founder bio (Hindi), name: founder_bio_hi, widget: text, required: false }
+          - { label: Founder LinkedIn URL, name: founder_linkedin, widget: string, required: false }
+          - { label: Founder photo, name: founder_photo, widget: image, required: false }

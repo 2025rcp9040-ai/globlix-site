@@ -1,0 +1,160 @@
+{
+  "seo_title": "Globlix: export consultancy for Indian manufacturers and artisans",
+  "seo_description": "Sell your products abroad with Globlix: HSN market research, licences, freight, payments and RoDTEP claims managed by one team. Get a free HSN export snapshot.",
+  "hero_eyebrow": "Export consultancy · India to the world",
+  "hero_title": "Sell your products abroad. We handle the export.",
+  "hero_text": "Market research, licences, freight, payments and government benefits, managed by one team backed by an Indian exporter since 2017.",
+  "hero_points": [
+    "Free 2-page export snapshot for your HSN code",
+    "One team for licences, freight and payments",
+    "Support in English and हिंदी"
+  ],
+  "cta_primary": "Get your free HSN snapshot",
+  "cta_secondary": "Chat on WhatsApp",
+  "quick_title": "Get a free export snapshot",
+  "quick_text": "Tell us your product. An export expert will call you back.",
+  "trust": [
+    {
+      "title": "Since 2017",
+      "text": "Backed by QOPTUM Private Limited's own exports",
+      "icon": "shield"
+    },
+    {
+      "title": "One window",
+      "text": "Research, compliance, freight and payments",
+      "icon": "globe"
+    },
+    {
+      "title": "Paid on results",
+      "text": "Commission only on payments received",
+      "icon": "rupee"
+    },
+    {
+      "title": "Two languages",
+      "text": "Talk to us in English or हिंदी",
+      "icon": "chat"
+    }
+  ],
+  "problems_title": "Your export problem, solved by one service",
+  "problems_text": "Most Indian makers get stuck at the same five points. Each Globlix service fixes one of them.",
+  "problems": [
+    {
+      "problem": "Not sure which country will buy your product",
+      "service": "strategic-intelligence",
+      "outcome": "A ranked shortlist of markets for your HSN code, with duty, competitors and target prices."
+    },
+    {
+      "problem": "Licences and paperwork feel endless",
+      "service": "setup-compliance",
+      "outcome": "IEC, GST LUT, RCMC, tests and origin certificates, filed by partner CAs and CHAs."
+    },
+    {
+      "problem": "Freight is too costly for small volumes",
+      "service": "aggregator-engine",
+      "outcome": "Shared containers, customs clearance and courier business rates, on one invoice."
+    },
+    {
+      "problem": "Payments delayed and benefits unclaimed",
+      "service": "financial-growth",
+      "outcome": "Safer payment terms, eBRC, RoDTEP claims and scrip sale."
+    },
+    {
+      "problem": "Buyers abroad cannot find you",
+      "service": "digital-launchpad",
+      "outcome": "Export catalogue, B2B listings and outreach to importers, or we act as your export sales team."
+    }
+  ],
+  "start_title": "Not sure where to start?",
+  "start_text": "Get the free snapshot first. It shows where your product sells and what to fix.",
+  "audience_title": "Built for",
+  "audiences": [
+    {
+      "title": "Manufacturers starting to export",
+      "text": "From IEC to your first shipment.",
+      "icon": "rocket"
+    },
+    {
+      "title": "Artisans and craft clusters",
+      "text": "Handicrafts, textiles, rugs and décor, ready for global buyers.",
+      "icon": "star"
+    },
+    {
+      "title": "Exporters who are stuck",
+      "text": "Open a second and third market when one market slows.",
+      "icon": "chart"
+    }
+  ],
+  "facts_title": "The window is open now",
+  "facts": [
+    {
+      "value": "0%",
+      "label": "duty on all Indian goods entering Australia since 1 Jan 2026",
+      "source": "Trade agreement notification"
+    },
+    {
+      "value": "0%",
+      "label": "duty on qualifying Indian goods in the UK under CETA, since 15 Jul 2026",
+      "source": "India–UK CETA"
+    },
+    {
+      "value": "38%",
+      "label": "of world hand-knotted rug exports come from India (2023)",
+      "source": "Official trade statistics, 2023"
+    },
+    {
+      "value": "31 Dec 2026",
+      "label": "RoDTEP export refunds extended to this date",
+      "source": "Government notification"
+    }
+  ],
+  "steps_title": "From enquiry to first shipment",
+  "steps": [
+    {
+      "title": "Free HSN snapshot",
+      "text": "Two pages on where your product sells, the duty you pay and the schemes you can claim."
+    },
+    {
+      "title": "Strategy call",
+      "text": "45 minutes to agree target markets, gaps and a realistic plan."
+    },
+    {
+      "title": "90-day plan",
+      "text": "Licences, samples, buyer outreach and pricing, with a trial order as the goal."
+    },
+    {
+      "title": "Ship and get paid",
+      "text": "Freight, documents, payment, eBRC and scheme claims handled with you."
+    }
+  ],
+  "markets_title": "Where Indian goods enter duty-free today",
+  "markets_text": "New trade deals have cut duty to zero in several markets. We tell you which ones fit your HSN code.",
+  "faq_title": "Questions exporters ask us",
+  "faq": [
+    {
+      "q": "What is in the free HSN snapshot?",
+      "a": "Two pages for your product code: the top importing countries, the duty Indian goods pay there, the export schemes you may claim, and a clear next step. There is no obligation."
+    },
+    {
+      "q": "I have never exported. Can you help?",
+      "a": "Yes. We set up your IEC, GST LUT and RCMC, prepare your product for a chosen market, and stay with you until your first shipment is paid."
+    },
+    {
+      "q": "How do you charge?",
+      "a": "The snapshot is free. Services are quoted per scope, and partner fees for CAs, CHAs and freight are shared upfront. Under our Export Sales Partner model you pay a monthly retainer plus 5–10% commission on export payments actually received."
+    },
+    {
+      "q": "Do you guarantee orders or payments?",
+      "a": "No, and you should be careful of anyone who does. We improve your odds: the right market, compliant documents, safer payment terms and direct outreach to real importers."
+    },
+    {
+      "q": "Which products do you work with?",
+      "a": "Our focus is handicrafts, home textiles, carpets and rugs, and apparel. We assess other products by their HSN code."
+    },
+    {
+      "q": "Can you help me claim RoDTEP and other schemes?",
+      "a": "Yes. We check eligibility for each shipment, make sure shipping bills and bank records are correct, and file claims on time."
+    }
+  ],
+  "cta_title": "Find out where your product can sell",
+  "cta_text": "Share your HSN code or product and get a free two-page export snapshot."
+}

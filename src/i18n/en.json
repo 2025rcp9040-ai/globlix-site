@@ -1,0 +1,127 @@
+{
+  "lang_name": "English",
+  "switch_to": "हिंदी",
+  "skip": "Skip to content",
+  "nav": {
+    "services": "Services",
+    "markets": "Markets",
+    "schemes": "Schemes",
+    "insights": "Insights",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Free HSN snapshot",
+    "menu": "Menu"
+  },
+  "footer": {
+    "about": "Export consultancy for Indian manufacturers, artisans and exporters.",
+    "backed": "Backed by {backed_by}, exporting since {since}.",
+    "explore": "Explore",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "contact": "Talk to us",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "read_more": "Read more",
+    "all_insights": "All insights",
+    "latest_insights": "Latest export insights",
+    "published": "Published",
+    "back": "Back",
+    "whatsapp": "Chat on WhatsApp",
+    "learn_more": "Learn more",
+    "get_snapshot": "Get your free HSN snapshot",
+    "talk": "Talk to an export expert",
+    "not_found_title": "Page not found",
+    "not_found_text": "The page you are looking for has moved or does not exist.",
+    "go_home": "Go to the home page",
+    "translation_missing": "This article is available in English.",
+    "updated": "Updated"
+  },
+  "forms": {
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone / WhatsApp",
+    "company": "Company or brand",
+    "location": "City and state",
+    "hsn_code": "HSN code (4, 6 or 8 digits)",
+    "hsn_hint": "Not sure? Leave it blank and describe the product. We will find the code.",
+    "product": "Product you want to export",
+    "export_status": "Where are you today?",
+    "status_new": "Never exported",
+    "status_some": "Exporting, want to grow",
+    "status_stuck": "Started but stuck",
+    "target_markets": "Markets you are interested in",
+    "monthly_capacity": "Monthly production capacity",
+    "capacity_hint": "For example: 500 pieces, 2,000 sq m, 1 container",
+    "message": "How can we help?",
+    "consent": "I agree that Globlix may store these details and contact me about my enquiry, as described in the",
+    "consent_link": "privacy policy",
+    "submit_contact": "Send message",
+    "submit_snapshot": "Request my free snapshot",
+    "sending": "Sending…",
+    "error": "Sorry, the form could not be sent. Please try again, or message us on WhatsApp.",
+    "required": "Required",
+    "markets": [
+      "USA",
+      "European Union",
+      "United Kingdom",
+      "Middle East",
+      "Australia",
+      "Japan",
+      "Canada",
+      "Latin America",
+      "Not sure yet"
+    ],
+    "wa_fallback": "Send these details on WhatsApp"
+  },
+  "contact": {
+    "title": "Talk to Globlix",
+    "intro": "Tell us what you make and where you want to sell. We reply within one working day.",
+    "direct": "Prefer to talk directly?",
+    "email_us": "Email",
+    "call_us": "Phone"
+  },
+  "snapshot": {
+    "title": "Free HSN export snapshot",
+    "intro": "Two pages for your product code: top importing countries, the duty Indian goods pay there, and the government schemes you can claim.",
+    "points": [
+      "Top importing markets for your HSN code",
+      "Duty for Indian goods and trade-deal benefits",
+      "Export schemes you may be eligible for",
+      "A clear next step, with no obligation"
+    ]
+  },
+  "thanks": {
+    "title": "Thank you, we have your details",
+    "text": "An export expert from Globlix will contact you within one working day. For a faster reply, message us on WhatsApp.",
+    "home": "Back to home"
+  },
+  "insights": {
+    "title": "Export insights",
+    "intro": "Market research and practical guides for Indian exporters, built on official trade data."
+  },
+  "services": {
+    "title": "Services",
+    "intro": "Five pillars that take you from your first enquiry to steady export income."
+  },
+  "markets_ui": {
+    "status_zero": "0% duty now",
+    "status_soon": "0% coming",
+    "status_partial": "Duty cuts",
+    "status_normal": "Normal duty",
+    "status_extra": "Extra duty",
+    "established": "Established markets",
+    "new": "Markets opened by new deals",
+    "legend": "Status key",
+    "see_all": "See all markets"
+  },
+  "problem_label": "The problem",
+  "solution_label": "How Globlix solves it",
+  "quick": {
+    "submit": "Call me back",
+    "faq_cta": "Still have a question?",
+    "see_service": "See how it works",
+    "pain": "The problem"
+  }
+}

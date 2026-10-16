@@ -1,6 +1,6 @@
 # globlix.in
 
-Website for Globlix: English and Hindi pages, a browser editor, a blog, a WhatsApp button, and lead forms that save to Google Sheets and HubSpot. Hosted on Cloudflare Pages. See `ARCHITECTURE.md` for the design.
+Website for Globlix: English and Hindi pages, a browser editor, a blog, a WhatsApp button, and lead forms that save to Google Sheets and HubSpot. Hosted on Cloudflare (Workers or Pages). See `ARCHITECTURE.md` for the design.
 
 ## What's in the folder
 
@@ -10,7 +10,8 @@ src/i18n/           menu, button and form labels in English and Hindi
 src/styles, src/js  site design and the small browser script
 static/             logo, favicon, images, and the CMS at /admin
 scripts/build.mjs   builds the site into dist/ (no installs needed)
-functions/api/      Cloudflare Pages Function: receives every form at /api/lead
+worker.js           Cloudflare Worker: receives every form at /api/lead (functions/ is the Pages equivalent)
+wrangler.jsonc      tells Cloudflare what to serve and run
 lib/leads.mjs       checks each lead and sends it to Google Sheets and HubSpot
 apps-script/Code.gs paste into your Google Sheet's Apps Script
 tests/              automated checks (npm test)
@@ -24,18 +25,18 @@ Everything below runs on Cloudflare's free plan.
 1. Create a free GitHub account and a **private** repository called `globlix-site`.
 2. Upload this folder's contents (GitHub > Add file > Upload files), or push with git.
 
-### 2. Create the site on Cloudflare Pages
-1. Sign up at dash.cloudflare.com. Go to **Workers & Pages > Create > Pages > Connect to Git**, allow GitHub access and pick `globlix-site`.
-2. Build settings:
-   - Framework preset: **None**
-   - Build command: `node scripts/build.mjs`
-   - Build output directory: `dist`
-   - Environment variable: `NODE_VERSION` = `22`
-3. Click **Save and Deploy**. The site appears at `globlix-site.pages.dev`. The `functions/` folder is picked up automatically, so the forms post to `/api/lead`.
+### 2. Create the site on Cloudflare (Workers, as the current dashboard offers)
+1. Sign up at dash.cloudflare.com. **Workers & Pages > Create application > Import a repository** (GitHub) > `globlix-site`.
+2. Project name: `globlix-site`. Build command: `node scripts/build.mjs`. Deploy command: `npx wrangler deploy` (the default). Root directory: leave empty. Build variable `NODE_VERSION` = `22`.
+3. Deploy. `wrangler.jsonc` tells Cloudflare to serve `dist/` and to run `worker.js` for `/api/*` (the forms). The site appears at `globlix-site.<your-name>.workers.dev`.
+4. **Secrets go in a different place from build variables.** Open the Worker > **Settings > Variables and Secrets** (not "Build > Variables") and add the secrets from steps 4 and 5 below. The Worker picks them up immediately.
+5. Check the setup: open `https://<your-site>/api/health`. Each setting should say `true`, and `sheets_script` should say "Globlix lead receiver is running".
+
+(Cloudflare Pages also works: the `functions/` folder does the same job there.)
 
 ### 3. Connect globlix.in
 1. Easiest: Cloudflare > **Add a domain** > `globlix.in` (free plan), then change the nameservers at your domain registrar to the two Cloudflare shows. Wait until Cloudflare says the domain is active.
-2. Pages project > **Custom domains > Set up a custom domain**: add `globlix.in`, then again for `www.globlix.in`. DNS records and HTTPS are created automatically.
+2. Worker (or Pages project) > **Settings > Domains & Routes > Add > Custom domain**: add `globlix.in`, then again for `www.globlix.in`. DNS records and HTTPS are created automatically.
 3. Send www to the main address: your domain > **Rules > Redirect Rules > Create from template > "Redirect from WWW to root"** > Deploy.
 
 ### 4. Connect Google Sheets
@@ -45,16 +46,16 @@ The script is already set to your sheet (ID `1jY9_49eY-Yfbntzdzbljfp1PRAeu1ZPRVV
 3. Project Settings > Script properties > add `SHARED_SECRET` = a long random string.
 4. Run `testAppend` once and approve the permission prompt. A "test" tab appears; you can delete it.
 5. Deploy > New deployment > Web app; Execute as **Me**, Who has access **Anyone**. Copy the web app URL (ends in `/exec`). Opening it in a browser should say "Globlix lead receiver is running".
-6. Cloudflare > Pages project > **Settings > Variables and Secrets > Add** (type **Secret**, environment **Production**):
+6. Cloudflare > your Worker > **Settings > Variables and Secrets > Add** (type **Secret**):
    - `SHEETS_WEBHOOK_URL` = the web app URL
    - `SHEETS_SECRET` = the same secret as step 3
-7. Variables apply from the next deployment: **Deployments > latest > ⋯ > Retry deployment**.
+7. Secrets apply right after you click Deploy in that dialog. Then check `/api/health`.
 8. Email alert for every new lead: in the Google Sheet, **Tools > Notification settings > Edit notifications** > "Any changes are made" > "Email - right away".
 
 ### 5. Connect HubSpot (free CRM)
 1. In HubSpot: Settings > Integrations > Private apps (in newer accounts: Development > Legacy apps > Create private app).
 2. Name it "Globlix website". Scopes: `crm.objects.contacts.read` and `crm.objects.contacts.write`. Create and copy the access token.
-3. In Cloudflare add secret `HUBSPOT_TOKEN` = the token, then retry the deployment.
+3. In Cloudflare add secret `HUBSPOT_TOKEN` = the token (Worker > Settings > Variables and Secrets).
 
 ### 6. Turn on the content editor (/admin)
 The editor signs you in with GitHub, through a small free login helper on Cloudflare Workers.
@@ -70,7 +71,7 @@ The editor signs you in with GitHub, through a small free login helper on Cloudf
 
 ### 7. Optional: stop spam bots (Cloudflare Turnstile)
 1. Cloudflare > **Turnstile > Add widget**: name `globlix forms`, hostname `globlix.in`, mode **Managed**.
-2. Copy the **secret key** into the Pages project as secret `TURNSTILE_SECRET`.
+2. Copy the **secret key** into the Worker as secret `TURNSTILE_SECRET`.
 3. Copy the **site key** into `/admin` > Site settings > Turnstile site key, and publish. The check appears above each form's button.
 Set both keys together: with only the secret set, every form would be refused.
 
@@ -78,7 +79,7 @@ Set both keys together: with only the secret set, every form would be refused.
 In `/admin` > Site settings: real **email** and **address** (phone and WhatsApp are already set). Then publish.
 
 ### 9. Test end to end
-Submit the quick form, the HSN snapshot and the contact form on the live site (English and Hindi). Check that the Google Sheet has a new row, HubSpot has the contact with a note, and the email alert arrived. If a lead is missing: Pages project > Deployments > latest > **Functions > Real-time logs**, submit again, and read the "Lead processed" line.
+Submit the quick form, the HSN snapshot and the contact form on the live site (English and Hindi). Check that the Google Sheet has a new row, HubSpot has the contact with a note, and the email alert arrived. If a lead is missing: open `/api/health` first. Then Worker > **Logs** (Observability), submit again, and read the "Lead processed" line.
 
 If neither Sheets nor HubSpot can store a lead, the visitor sees the error message with a **Send these details on WhatsApp** button, so the enquiry still reaches you.
 
